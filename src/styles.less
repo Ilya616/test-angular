@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'less/var.less';
+
+
+
+.wrap{
+    border:1px solid rgb(96, 233, 69);
+    width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    margin:0 auto;
+    box-sizing: border-box;
+
+    &__left-sidebar{
+
+    }
+    &__main{
+        flex-grow: 1;
+    }
+    &__right_sidebar{
+
+    }
+}
+
+@media (max-width: @desktop){
+    .wrap{
+        width: 80%;
+    }
+}

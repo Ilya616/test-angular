@@ -3,12 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+
+import { CommentformComponent } from './components/commentform/commentform.component';
+import { AddcommentComponent } from './components/addcomment/addcomment.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CommentformComponent,
+    AddcommentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
