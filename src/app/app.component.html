@@ -25,13 +25,14 @@
             <div class="comment__content">
               {{ comment.body}}
             </div>
-            <div class="add_answer" #addAnswerForm>
-              <div class="comment__add-answer-form" *ngIf="answerFlag"> 
-                <app-addcomment></app-addcomment>
+       
+            <div class="add_answer" #addAnswerForm id="{{ comment.id }}">
+              <div class="comment__add-answer-form"> 
+                <app-addcomment [parentid]="parentid" (buttonClick)="addComment($event, addAnswerForm)"></app-addcomment>
               </div>
             </div>
             
-            <button id="{{ comment.id  }}" class="comment__answer" (click)="addAnswer(addAnswerForm)">ответить</button>
+            <button type="button" id="{{ comment.id  }}" class="comment__answer" (click)="addAnswer(addAnswerForm)">ответить</button>
           
             
             

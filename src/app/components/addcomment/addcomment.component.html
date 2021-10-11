@@ -1,2 +1,19 @@
 
-    <p>форма для ответа</p>
+<div class="add-comment">
+    <form #form="ngForm" (ngSubmit)="getForm(form)" novalidate>
+        <div>
+            <input type="text" name="author" ngModel required class="input-form" placeholder="Автор" #author="ngModel">
+        </div>
+        <div [hidden]="author.valid || author.untouched" class="alert alert-danger">
+            Не указано имя
+        </div>
+        <div>
+            <textarea name="body" id="" cols="30" ngModel rows="10" required class="input-form" placeholder="Комментарий..." #body="ngModel"></textarea>
+        </div>
+        <div [hidden]="body.valid || body.untouched" class="alert alert-danger">
+            Комментарий не может быть пустым
+        </div>
+        <div><button [disabled]="form.invalid" class="btn btn-danger">Отправить</button></div>
+
+    </form>
+</div>

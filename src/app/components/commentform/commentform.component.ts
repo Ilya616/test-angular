@@ -10,19 +10,8 @@ import { CreatecommentService } from  '../../servises/createcomment.service';
 export class CommentformComponent implements OnInit {
   @Input() newComment;
   @Output() buttonClick = new EventEmitter<any>();
-/*
-  public change(change: any): void {
-    this.newComment = {
-      "id": 2,
-      "parent_id": 0,
-      "date_time": "2021-04-23T18:25:43.511Z" ,
-      "author_name": "author",
-      "body": "text"
-    }
-    this.buttonClick.emit(this.newComment);
-  }
-*/
-  formFlag;
+
+  	formFlag;
 	getFormFlag = false;
 	email: string;
 	author:string;
@@ -34,21 +23,21 @@ export class CommentformComponent implements OnInit {
 	public getForm(form: NgForm){
 		this.getFormFlag = true;
 		if(form.valid){
-      let date = new Date();
-      this.newComment = {
-        "id": 2,
-			  "parent_id": 0,
-			  "date_time": date,
-			  "author_name": form.value.author,
-			  "body": form.value.body
-      }
-      form.reset();
-      /*
-			this.data({
-					// запись в базу
-				});
-        */
-      this.buttonClick.emit(this.newComment);
+			let date = new Date();
+			this.newComment = {
+				"id": 2,
+				"parent_id": 0,
+				"date_time": date,
+				"author_name": form.value.author,
+				"body": form.value.body
+			}
+			form.reset();
+			/*
+				this.data({
+						// запись в базу
+					});
+			*/
+			this.buttonClick.emit(this.newComment);
 		}
 	}
 /*

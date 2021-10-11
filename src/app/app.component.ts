@@ -9,6 +9,8 @@ import { CommentsService } from './servises/comments.service';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
+  public parentid;
+  
 
   title = 'test-angular';
   answerFlag = false;
@@ -24,9 +26,18 @@ export class AppComponent {
     this.comments.push(isAdd);
   }
 
+  public addComment(isAdd: any, addAnswerForm:any): void {
+    isAdd.id = this.comments.length;
+    isAdd.date_time = this.dateFormat(isAdd.date_time);
+    this.comments.push(isAdd);
+    addAnswerForm.style.display = "none";
+  }
+
   addAnswer(addAnswerForm){
-    console.log(addAnswerForm);
+
+    addAnswerForm.style.display = "block";
     this.answerFlag = true;
+    this.parentid = addAnswerForm.getAttribute("id");
   }
 
   answers(id){
